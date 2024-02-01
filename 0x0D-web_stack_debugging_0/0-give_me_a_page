@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Configure Apache to return a page with "Hello Holberton"
+
+# Start the Docker container
+docker run -p 8080:80 -d -it holbertonschool/265-0
+
+# Access the container's shell
+docker exec -ti a721c54dbc8a /bin/bash
+
+# Edit the Apache configuration file
+vi /etc/apache2/sites-available/000-default.conf
+
+# Set the DocumentRoot to /var/www/html
+# DocumentRoot /var/www/html
+
+# Save the file and exit the text editor
+
+# Create an HTML file with "Hello Holberton"
+echo "Hello Holberton" > /var/www/html/index.html
+
+# Restart Apache
+service apache2 restart
+
+# Exit the container's shell
+exit
